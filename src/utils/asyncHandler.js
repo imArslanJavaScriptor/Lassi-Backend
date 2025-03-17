@@ -1,12 +1,12 @@
 // Wrapper Function with Promisses Method: 1
-const asyncHandler = (func) => {
-    (req, res, next) => {
-        Promise.resolve(func(req, res, next))
+const asyncHandler = (requestHandler) => {
+    return (req, res, next) => {
+        Promise.resolve(requestHandler(req, res, next))
         .catch((err) => next(err))
     }
 
 }
-// export {asynHandler}
+export {asyncHandler}
 
 
 
